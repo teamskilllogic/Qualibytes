@@ -10,10 +10,11 @@ import GrowthFormula from "@/components/growth-formula";
 import LeadershipTeam from "@/components/leadership-team";
 import AdvisoryCommittee from "@/components/advisory-committee";
 import Footer from "@/components/footer";
+import WhatsAppFloat from "@/components/whatsapp-float";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background dark:bg-background">
       <Navigation />
       <HeroSection />
       <CareerOutcomes />
@@ -26,6 +27,7 @@ export default function Home() {
       <LeadershipTeam />
       <AdvisoryCommittee />
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }

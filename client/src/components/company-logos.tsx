@@ -16,18 +16,22 @@ const companies: CompanyLogo[] = [
 ];
 
 export default function CompanyLogos() {
+  const doubledCompanies = [...companies, ...companies];
+
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background dark:bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Alumni Work At</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-foreground">Our Alumni Work At</h2>
         
-        {/* Technology companies logos showcase */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
-          {companies.map((company, index) => (
-            <div key={index} className="bg-gray-100 h-16 rounded flex items-center justify-center hover:opacity-80 transition-opacity">
-              <span className="text-gray-500 font-semibold">{company.name}</span>
-            </div>
-          ))}
+        {/* Marquee effect for company logos */}
+        <div className="marquee">
+          <div className="marquee-content flex items-center space-x-12">
+            {doubledCompanies.map((company, index) => (
+              <div key={index} className="bg-muted h-16 px-8 rounded flex items-center justify-center hover:bg-muted/80 transition-colors whitespace-nowrap flex-shrink-0">
+                <span className="text-muted-foreground font-semibold">{company.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

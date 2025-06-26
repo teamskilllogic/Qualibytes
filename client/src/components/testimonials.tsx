@@ -10,11 +10,11 @@ export default function Testimonials() {
 
   if (isLoading) {
     return (
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background dark:bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">OUR LEARNERS' WORKS SPEAKS FOR THEM</h2>
-            <h3 className="text-xl text-gray-600">Hear What The Industry Has To Say</h3>
+            <h2 className="text-3xl font-bold text-foreground mb-4">OUR LEARNERS' WORKS SPEAKS FOR THEM</h2>
+            <h3 className="text-xl text-muted-foreground">Hear What The Industry Has To Say</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(3)].map((_, index) => (
@@ -38,11 +38,11 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background dark:bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">OUR LEARNERS' WORKS SPEAKS FOR THEM</h2>
-          <h3 className="text-xl text-gray-600">Hear What The Industry Has To Say</h3>
+          <h2 className="text-3xl font-bold text-foreground mb-4">OUR LEARNERS' WORKS SPEAKS FOR THEM</h2>
+          <h3 className="text-xl text-muted-foreground">Hear What The Industry Has To Say</h3>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

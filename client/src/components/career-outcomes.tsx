@@ -11,11 +11,11 @@ const careerTransitions: CareerTransition[] = [
 
 export default function CareerOutcomes() {
   return (
-    <section className="py-16 bg-light">
+    <section className="py-16 bg-muted dark:bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">LEARNER OUTCOMES</h2>
-          <h3 className="text-xl text-gray-600">See How Far You Could Go</h3>
+          <h2 className="text-3xl font-bold text-foreground mb-4">LEARNER OUTCOMES</h2>
+          <h3 className="text-xl text-muted-foreground">See How Far You Could Go</h3>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

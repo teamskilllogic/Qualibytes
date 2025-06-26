@@ -65,8 +65,8 @@ export default function HeroSection() {
   return (
     <section className="gradient-primary text-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+          <div className="lg:col-span-2">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Become the Top 1% in Tech
             </h1>
@@ -79,6 +79,18 @@ export default function HeroSection() {
                   <div className="text-sm opacity-90">{stat.label}</div>
                 </div>
               ))}
+            </div>
+
+            {/* Video Placeholder */}
+            <div className="bg-black/20 rounded-xl aspect-video mb-8 flex items-center justify-center border border-white/20">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <p className="text-sm opacity-80">Watch Success Stories</p>
+              </div>
             </div>
           </div>
           

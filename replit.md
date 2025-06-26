@@ -96,6 +96,14 @@ The application is configured for deployment on Replit with the following setup:
 ```
 Changelog:
 - June 26, 2025. Initial setup
+- June 26, 2025. Added complete Scaler website replica with Qualibytes branding
+  - Functional navigation with dropdown menus
+  - Hero section with video placeholder and registration form
+  - Premium dark theme as default with light/dark toggle
+  - Marquee effect for company logos section
+  - Floating WhatsApp button for customer support
+  - Responsive design with mobile-first approach
+  - Complete API integration for all data sections
 ```
 
 ## User Preferences
