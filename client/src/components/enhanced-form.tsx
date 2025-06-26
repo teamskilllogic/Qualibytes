@@ -64,51 +64,28 @@ export default function EnhancedForm({ isPopup = false, onClose }: EnhancedFormP
 
   return (
     <Card className={cardClass}>
-      <CardContent className="p-8">
-        <h3 className="text-2xl font-bold mb-2 text-gray-900">
-          Let's find the right course for you
+      <CardContent className="p-6">
+        <h3 className="text-xl font-bold mb-4 text-gray-900">
+          Book a Live Class, For Free!
         </h3>
         
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          {/* Experience Level */}
-          <div className="space-y-4">
-            <Label className="text-sm font-medium text-gray-700">Experience</Label>
-            <RadioGroup 
-              value={formData.experience} 
-              onValueChange={(value) => setFormData(prev => ({ ...prev, experience: value }))}
-              className="space-y-3"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="working-technical" id="working-technical" />
-                <Label htmlFor="working-technical" className="text-sm text-gray-700 font-normal">
-                  Working Professional - Technical Roles
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="working-non-technical" id="working-non-technical" />
-                <Label htmlFor="working-non-technical" className="text-sm text-gray-700 font-normal">
-                  Working Professional - Non Technical
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="college-final" id="college-final" />
-                <Label htmlFor="college-final" className="text-sm text-gray-700 font-normal">
-                  College Student - Final Year
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="college-pre-final" id="college-pre-final" />
-                <Label htmlFor="college-pre-final" className="text-sm text-gray-700 font-normal">
-                  College Student - 1st to Pre-final Year
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="others" id="others" />
-                <Label htmlFor="others" className="text-sm text-gray-700 font-normal">
-                  Others
-                </Label>
-              </div>
-            </RadioGroup>
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          {/* Topic of Interest */}
+          <div className="space-y-2">
+            <Label htmlFor="topic" className="text-sm font-medium text-gray-700">Your Topic of Interest*</Label>
+            <Select value={formData.topicOfInterest} onValueChange={(value) => setFormData(prev => ({ ...prev, topicOfInterest: value }))}>
+              <SelectTrigger className="w-full h-12 border-gray-300 rounded-lg bg-gray-800 text-white border-gray-600">
+                <SelectValue placeholder="Select Program" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="software-development">Software Development</SelectItem>
+                <SelectItem value="data-science">Data Science</SelectItem>
+                <SelectItem value="machine-learning">Machine Learning & AI</SelectItem>
+                <SelectItem value="web-development">Web Development</SelectItem>
+                <SelectItem value="mobile-development">Mobile Development</SelectItem>
+                <SelectItem value="devops">DevOps & Cloud</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           {/* Topic of Interest */}
@@ -131,42 +108,48 @@ export default function EnhancedForm({ isPopup = false, onClose }: EnhancedFormP
 
           {/* Name */}
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-sm font-medium text-gray-700">Name</Label>
             <Input
-              id="name"
               type="text"
-              placeholder="Enter name"
+              placeholder="Enter Name"
               value={formData.name}
               onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-              className="h-12 border-gray-300 rounded-lg"
-              required
-            />
-          </div>
-
-          {/* Phone Number */}
-          <div className="space-y-2">
-            <Label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number</Label>
-            <Input
-              id="phone"
-              type="tel"
-              placeholder="Enter phone number"
-              value={formData.phone}
-              onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-              className="h-12 border-gray-300 rounded-lg"
+              className="h-12 bg-gray-800 border-gray-600 text-white placeholder-gray-400 rounded-lg"
               required
             />
           </div>
 
           {/* Email */}
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email</Label>
             <Input
-              id="email"
               type="email"
-              placeholder="Enter email"
+              placeholder="Enter Email"
               value={formData.email}
               onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-              className="h-12 border-gray-300 rounded-lg"
+              className="h-12 bg-gray-800 border-gray-600 text-white placeholder-gray-400 rounded-lg"
+              required
+            />
+          </div>
+
+          {/* Phone Number */}
+          <div className="space-y-2 flex">
+            <div className="w-20">
+              <Select defaultValue="+91">
+                <SelectTrigger className="h-12 bg-gray-800 border-gray-600 text-white">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="bg-gray-800 border-gray-600">
+                  <SelectItem value="+91" className="text-white">+91</SelectItem>
+                  <SelectItem value="+1" className="text-white">+1</SelectItem>
+                  <SelectItem value="+44" className="text-white">+44</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <Input
+              type="tel"
+              placeholder="Enter Phone"
+              value={formData.phone}
+              onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+              className="flex-1 h-12 bg-gray-800 border-gray-600 text-white placeholder-gray-400 ml-2 rounded-lg"
               required
             />
           </div>
@@ -174,18 +157,27 @@ export default function EnhancedForm({ isPopup = false, onClose }: EnhancedFormP
           {/* Submit Button */}
           <Button 
             type="submit" 
-            className="w-full h-12 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+            className="w-full h-12 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
             disabled={submitLead.isPending}
           >
-            {submitLead.isPending ? "Finding your course..." : "Find your course"}
+            {submitLead.isPending ? "BOOKING..." : "BOOK FREE LIVE CLASS"}
           </Button>
+
+          {/* Limited Seats Message */}
+          <div className="flex items-center justify-center space-x-2 bg-yellow-600 text-white p-2 rounded">
+            <span className="text-sm">👥 Limited Seats Left</span>
+          </div>
+
+          {/* Already have account */}
+          <p className="text-sm text-gray-400 text-center">
+            Already have an account? <span className="text-blue-400 underline cursor-pointer">Click here</span>
+          </p>
 
           {/* Privacy Notice */}
           <p className="text-xs text-gray-500 text-center leading-relaxed">
-            I authorize Coding Ninjas to contact me with course updates & offers via 
-            Email/SMS/WhatsApp/Call. I have read and agree to 
-            <span className="text-blue-600 underline cursor-pointer"> Privacy Policy</span> & 
-            <span className="text-blue-600 underline cursor-pointer"> Terms of use</span>
+            By creating an account I have read and agree to 
+            <span className="text-blue-400 underline cursor-pointer"> Terms</span> and 
+            <span className="text-blue-400 underline cursor-pointer"> Privacy Policy</span>
           </p>
         </form>
       </CardContent>

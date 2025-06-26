@@ -18,7 +18,7 @@ const features = [
 
 export default function FeaturedProgram() {
   return (
-    <section className="py-16 gradient-primary text-white">
+    <section className="py-16 bg-blue-600 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="inline-block bg-accent text-black px-4 py-1 rounded-full text-sm font-semibold mb-4">

@@ -87,7 +87,7 @@ export default function ProgramsSection() {
         {/* Course Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedPrograms.map((program) => (
-            <Card key={program.id} className="bg-white overflow-hidden hover:shadow-xl transition-shadow">
+            <Card key={program.id} className="bg-black dark:bg-black light:bg-white overflow-hidden hover:shadow-xl transition-shadow">
               <img 
                 src={program.imageUrl || "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"} 
                 alt={`Students learning ${program.title}`}
@@ -105,9 +105,9 @@ export default function ProgramsSection() {
                   )}
                 </div>
                 
-                <h4 className="text-xl font-semibold mb-2">{program.title}</h4>
+                <h4 className="text-xl font-semibold mb-2 text-white dark:text-white light:text-gray-900">{program.title}</h4>
                 
-                <div className="space-y-2 text-sm text-gray-600 mb-4">
+                <div className="space-y-2 text-sm text-gray-300 dark:text-gray-300 light:text-gray-600 mb-4">
                   <p>Min. work exp: {program.minExperience}</p>
                   <p>Duration: {program.duration}</p>
                   {program.features && program.features.length > 0 && (
@@ -129,10 +129,10 @@ export default function ProgramsSection() {
                 </div>
                 
                 <div className="flex space-x-3">
-                  <Button className="bg-primary text-white flex-1 hover:bg-blue-700">
+                  <Button className="bg-blue-600 text-white flex-1 hover:bg-blue-700">
                     GO TO PROGRAM
                   </Button>
-                  <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
                     BROCHURE
                   </Button>
                 </div>

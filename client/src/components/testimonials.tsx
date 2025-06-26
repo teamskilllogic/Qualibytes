@@ -47,9 +47,9 @@ export default function Testimonials() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials?.map((testimonial) => (
-            <Card key={testimonial.id} className="bg-light">
+            <Card key={testimonial.id} className="bg-black dark:bg-black light:bg-white">
               <CardContent className="p-6">
-                <p className="text-gray-700 mb-4 italic">
+                <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 mb-4 italic">
                   "{testimonial.content}"
                 </p>
                 <div className="flex items-center">
@@ -59,8 +59,8 @@ export default function Testimonials() {
                     className="w-12 h-12 rounded-full mr-4 object-cover" 
                   />
                   <div>
-                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-600">{testimonial.position}, {testimonial.company}</p>
+                    <p className="font-semibold text-white dark:text-white light:text-gray-900">{testimonial.name}</p>
+                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600">{testimonial.position}, {testimonial.company}</p>
                   </div>
                 </div>
               </CardContent>

@@ -9,7 +9,7 @@ const statistics: StatisticItem[] = [
 
 export default function HeroSection() {
   return (
-    <section className="bg-gradient-to-br from-gray-900 to-black dark:from-gray-900 dark:to-black light:from-orange-50 light:to-orange-100 text-white dark:text-white light:text-gray-900 py-20">
+    <section className="bg-gradient-to-br from-gray-900 to-black dark:bg-gradient-to-br dark:from-gray-900 dark:to-black light:bg-gradient-to-br light:from-orange-50 light:to-orange-100 text-white dark:text-white light:text-gray-900 py-20 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           <div className="lg:col-span-2">

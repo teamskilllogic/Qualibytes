@@ -57,7 +57,7 @@ export default function SuccessStories() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedStories.map((story) => (
-            <Card key={story.id} className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <Card key={story.id} className="bg-black dark:bg-black light:bg-white shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <img 
@@ -66,15 +66,15 @@ export default function SuccessStories() {
                     className="w-16 h-16 rounded-full mr-4 object-cover" 
                   />
                   <div>
-                    <h4 className="font-semibold text-gray-900">{story.name}</h4>
-                    <p className="text-sm text-gray-600">{story.currentPosition} @ {story.currentCompany}</p>
+                    <h4 className="font-semibold text-white dark:text-white light:text-gray-900">{story.name}</h4>
+                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600">{story.currentPosition} @ {story.currentCompany}</p>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">Pre Qualibytes</p>
-                    <p className="font-medium">{story.previousCompany}</p>
+                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600 mb-1">Pre Qualibytes</p>
+                    <p className="font-medium text-white dark:text-white light:text-gray-900">{story.previousCompany}</p>
                   </div>
                   
                   <div className="text-center">
@@ -84,8 +84,8 @@ export default function SuccessStories() {
                   </div>
                   
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">Post Qualibytes</p>
-                    <p className="font-medium">{story.currentCompany}</p>
+                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600 mb-1">Post Qualibytes</p>
+                    <p className="font-medium text-white dark:text-white light:text-gray-900">{story.currentCompany}</p>
                   </div>
                   
                   {story.profileUrl && (
@@ -93,7 +93,7 @@ export default function SuccessStories() {
                       href={story.profileUrl} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-primary hover:text-blue-700 text-sm font-medium inline-flex items-center"
+                      className="text-blue-400 hover:text-blue-300 text-sm font-medium inline-flex items-center"
                     >
                       VIEW PROFILE <ExternalLink className="ml-1 h-3 w-3" />
                     </a>
@@ -105,7 +105,7 @@ export default function SuccessStories() {
         </div>
         
         <div className="text-center mt-8">
-          <Button className="bg-primary text-white px-8 py-3 font-semibold hover:bg-blue-700">
+          <Button className="bg-blue-600 text-white px-8 py-3 font-semibold hover:bg-blue-700">
             VIEW MORE SUCCESS STORIES
           </Button>
         </div>
