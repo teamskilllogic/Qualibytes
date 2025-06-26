@@ -129,12 +129,35 @@
     animation-play-state: paused;
   }
 
+  .marquee-reverse {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-content-reverse {
+    display: inline-block;
+    animation: marquee-reverse 30s linear infinite;
+  }
+
+  .marquee-content-reverse:hover {
+    animation-play-state: paused;
+  }
+
   @keyframes marquee {
     0% {
       transform: translateX(100%);
     }
     100% {
       transform: translateX(-100%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
     }
   }
 

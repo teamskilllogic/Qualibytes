@@ -11,6 +11,7 @@ import LeadershipTeam from "@/components/leadership-team";
 import AdvisoryCommittee from "@/components/advisory-committee";
 import Footer from "@/components/footer";
 import WhatsAppFloat from "@/components/whatsapp-float";
+import PopupForm from "@/components/popup-form";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <AdvisoryCommittee />
       <Footer />
       <WhatsAppFloat />
+      <PopupForm />
     </div>
   );
 }
