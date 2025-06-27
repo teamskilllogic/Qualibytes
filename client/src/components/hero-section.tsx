@@ -2,48 +2,57 @@ import EnhancedForm from "./enhanced-form";
 import type { StatisticItem } from "@/lib/types";
 
 const statistics: StatisticItem[] = [
-  { value: "1200+", label: "Placement Partners" },
-  { value: "15K+", label: "Careers Transformed" },
-  { value: "100+", label: "Capstone Projects" }
+  { value: "1400+", label: "Hiring Partners" },
+  { value: "12K+", label: "Careers Transformed" },
+  { value: "200+", label: "Major Projects" }
 ];
 
 export default function HeroSection() {
   return (
-    <section className="bg-gradient-to-br from-gray-900 to-black dark:bg-gradient-to-br dark:from-gray-900 dark:to-black light:bg-gradient-to-br light:from-orange-50 light:to-orange-100 text-white dark:text-white light:text-gray-900 py-20 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-          <div className="lg:col-span-2">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Become the Top 1% in Tech
-            </h1>
+    <section
+      className="py-20 transition-all duration-300 
+        bg-[#fdf6ee] text-black 
+        dark:bg-gradient-to-br dark:from-gray-900 dark:to-black dark:text-white"
+    >
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row gap-12 items-stretch">
+
+          {/* 🟡 Left: Image + Stats */}
+          <div className="w-full lg:w-3/5 flex flex-col justify-between">
             
-            {/* Statistics */}
-            <div className="grid grid-cols-3 gap-6 mb-8">
-              {statistics.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold mb-2">{stat.value}</div>
-                  <div className="text-sm opacity-90">{stat.label}</div>
+            {/* 🖼️ Image */}
+            <div className="flex-1">
+              <img
+                src="https://i.postimg.cc/28z0TGsG/Chat-GPT-Image-Jun-26-2025-07-35-01-PM.png"
+                alt="Webinar Promo"
+                className="rounded-xl w-full h-full object-cover border border-black/10 dark:border-white/20"
+              />
+            </div>
+
+            {/* 📊 Stats */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full px-4 mt-6">
+              {statistics.map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm md:text-base opacity-80 uppercase tracking-wider">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
+          </div>
 
-            {/* Video Placeholder */}
-            <div className="bg-black/20 rounded-xl aspect-video mb-8 flex items-center justify-center border border-white/20">
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-                <p className="text-sm opacity-80">Watch Success Stories</p>
+          {/* 🔵 Right: Form with Equal Height */}
+          <div className="w-full lg:w-[550px] xl:w-[600px] flex flex-col">
+            <div className="flex-1 flex items-stretch">
+              <div className="w-full bg-background dark:bg-background shadow-2xl rounded-2xl p-6 lg:p-8 flex flex-col justify-center">
+                <EnhancedForm />
               </div>
             </div>
           </div>
-          
-          {/* Enhanced Registration Form */}
-          <div className="flex justify-center">
-            <EnhancedForm />
-          </div>
+
         </div>
       </div>
     </section>

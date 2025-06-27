@@ -1,6 +1,6 @@
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
-import CareerOutcomes from "@/components/career-outcomes";
+
 import FeaturedProgram from "@/components/featured-program";
 import CompanyLogos from "@/components/company-logos";
 import ProgramsSection from "@/components/programs-section";
@@ -12,13 +12,18 @@ import AdvisoryCommittee from "@/components/advisory-committee";
 import Footer from "@/components/footer";
 import WhatsAppFloat from "@/components/whatsapp-float";
 import PopupForm from "@/components/popup-form";
+import IndustriesPieSection from "@/components/industries-pie-section"; // ✅ Fixed path & import
 
-export default function Home() {
+interface HomeProps {
+  onRequestCall: () => void;
+}
+
+export default function Home({ onRequestCall }: HomeProps) {
   return (
     <div className="min-h-screen bg-background dark:bg-background">
-      <Navigation />
+      <Navigation onRequestCall={onRequestCall} />
       <HeroSection />
-      <CareerOutcomes />
+      <IndustriesPieSection /> {/* ✅ Correctly used */}
       <FeaturedProgram />
       <CompanyLogos />
       <ProgramsSection />
@@ -29,7 +34,8 @@ export default function Home() {
       <AdvisoryCommittee />
       <Footer />
       <WhatsAppFloat />
-      <PopupForm />
+      {/* If PopupForm is handled globally, don't include here */}
+      {/* <PopupForm /> */}
     </div>
   );
 }

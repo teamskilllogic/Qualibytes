@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -14,14 +19,18 @@ interface EnhancedFormProps {
   onClose?: () => void;
 }
 
-export default function EnhancedForm({ isPopup = false, onClose }: EnhancedFormProps) {
+export default function EnhancedForm({
+  isPopup = false,
+  onClose,
+}: EnhancedFormProps) {
   const [formData, setFormData] = useState({
     experience: "",
     topicOfInterest: "",
     name: "",
     phone: "",
-    email: ""
+    email: "",
   });
+
   const { toast } = useToast();
 
   const submitLead = useMutation({
@@ -33,7 +42,13 @@ export default function EnhancedForm({ isPopup = false, onClose }: EnhancedFormP
         title: "Registration Successful!",
         description: "We'll contact you soon with course details.",
       });
-      setFormData({ experience: "", topicOfInterest: "", name: "", phone: "", email: "" });
+      setFormData({
+        experience: "",
+        topicOfInterest: "",
+        name: "",
+        phone: "",
+        email: "",
+      });
       queryClient.invalidateQueries({ queryKey: ["/api/leads"] });
       if (onClose) onClose();
     },
@@ -48,7 +63,12 @@ export default function EnhancedForm({ isPopup = false, onClose }: EnhancedFormP
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.experience || !formData.name || !formData.phone || !formData.email) {
+    if (
+      !formData.experience ||
+      !formData.name ||
+      !formData.phone ||
+      !formData.email
+    ) {
       toast({
         title: "Please fill all required fields",
         variant: "destructive",
@@ -58,89 +78,102 @@ export default function EnhancedForm({ isPopup = false, onClose }: EnhancedFormP
     submitLead.mutate(formData);
   };
 
-  const cardClass = isPopup 
-    ? "w-full max-w-md bg-white text-gray-900 shadow-2xl rounded-2xl border-2 border-gray-200" 
-    : "bg-white text-gray-900 shadow-2xl rounded-2xl";
+  const cardClass = isPopup
+    ? "w-full max-w-md shadow-2xl rounded-2xl bg-white text-black dark:bg-gray-900 dark:text-white border border-gray-200 dark:border-gray-800"
+    : "shadow-2xl rounded-2xl bg-white text-black dark:bg-gray-900 dark:text-white";
 
   return (
     <Card className={cardClass}>
       <CardContent className="p-6">
-        <h3 className="text-xl font-bold mb-4 text-gray-900">
-          Book a Live Class, For Free!
+        <h3 className="text-xl font-bold mb-4">
+          Book a Live Webinar, For Free!
         </h3>
-        
+
         <form className="space-y-4" onSubmit={handleSubmit}>
           {/* Topic of Interest */}
           <div className="space-y-2">
-            <Label htmlFor="topic" className="text-sm font-medium text-gray-700">Your Topic of Interest*</Label>
-            <Select value={formData.topicOfInterest} onValueChange={(value) => setFormData(prev => ({ ...prev, topicOfInterest: value }))}>
-              <SelectTrigger className="w-full h-12 border-gray-300 rounded-lg bg-gray-800 text-white border-gray-600">
+            <Label>Your Topic of Interest*</Label>
+            <Select
+              value={formData.topicOfInterest}
+              onValueChange={(value) =>
+                setFormData((prev) => ({ ...prev, topicOfInterest: value }))
+              }
+            >
+              <SelectTrigger className="w-full h-12 bg-gray-100 dark:bg-gray-800 text-black dark:text-white border-gray-300 dark:border-gray-700 rounded-lg">
                 <SelectValue placeholder="Select Program" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="software-development">Software Development</SelectItem>
+                <SelectItem value="software-development">
+                  Software Development
+                </SelectItem>
                 <SelectItem value="data-science">Data Science</SelectItem>
-                <SelectItem value="machine-learning">Machine Learning & AI</SelectItem>
+                <SelectItem value="machine-learning">
+                  Machine Learning & AI
+                </SelectItem>
                 <SelectItem value="web-development">Web Development</SelectItem>
-                <SelectItem value="mobile-development">Mobile Development</SelectItem>
+                <SelectItem value="mobile-development">
+                  Mobile Development
+                </SelectItem>
                 <SelectItem value="devops">DevOps & Cloud</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
-          {/* Topic of Interest */}
+          {/* Topic Choices */}
           <div className="space-y-2">
-            <Label htmlFor="topic" className="text-sm font-medium text-gray-700">Select topic of interest</Label>
-            <Select value={formData.topicOfInterest} onValueChange={(value) => setFormData(prev => ({ ...prev, topicOfInterest: value }))}>
-              <SelectTrigger className="w-full h-12 border-gray-300 rounded-lg">
+            <Label>Select topic of interest</Label>
+            <Select
+              value={formData.experience}
+              onValueChange={(value) =>
+                setFormData((prev) => ({ ...prev, experience: value }))
+              }
+            >
+              <SelectTrigger className="w-full h-12 bg-gray-100 dark:bg-gray-800 text-black dark:text-white border-gray-300 dark:border-gray-700 rounded-lg">
                 <SelectValue placeholder="Select your options/choices" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="software-development">Software Development</SelectItem>
-                <SelectItem value="data-science">Data Science</SelectItem>
-                <SelectItem value="machine-learning">Machine Learning & AI</SelectItem>
-                <SelectItem value="web-development">Web Development</SelectItem>
-                <SelectItem value="mobile-development">Mobile Development</SelectItem>
-                <SelectItem value="devops">DevOps & Cloud</SelectItem>
+                <SelectItem value="beginner">Beginner</SelectItem>
+                <SelectItem value="intermediate">Intermediate</SelectItem>
+                <SelectItem value="advanced">Advanced</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           {/* Name */}
-          <div className="space-y-2">
-            <Input
-              type="text"
-              placeholder="Enter Name"
-              value={formData.name}
-              onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-              className="h-12 bg-gray-800 border-gray-600 text-white placeholder-gray-400 rounded-lg"
-              required
-            />
-          </div>
+          <Input
+            type="text"
+            placeholder="Enter Name"
+            value={formData.name}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, name: e.target.value }))
+            }
+            className="h-12 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg"
+            required
+          />
 
           {/* Email */}
-          <div className="space-y-2">
-            <Input
-              type="email"
-              placeholder="Enter Email"
-              value={formData.email}
-              onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-              className="h-12 bg-gray-800 border-gray-600 text-white placeholder-gray-400 rounded-lg"
-              required
-            />
-          </div>
+          <Input
+            type="email"
+            placeholder="Enter Email"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, email: e.target.value }))
+            }
+            className="h-12 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg"
+            required
+          />
 
-          {/* Phone Number */}
-          <div className="space-y-2 flex">
+          {/* Phone */}
+          <div className="flex space-x-2">
             <div className="w-20">
               <Select defaultValue="+91">
-                <SelectTrigger className="h-12 bg-gray-800 border-gray-600 text-white">
+                <SelectTrigger className="h-12 bg-gray-100 dark:bg-gray-800 text-black dark:text-white border-gray-300 dark:border-gray-700">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-gray-800 border-gray-600">
-                  <SelectItem value="+91" className="text-white">+91</SelectItem>
-                  <SelectItem value="+1" className="text-white">+1</SelectItem>
-                  <SelectItem value="+44" className="text-white">+44</SelectItem>
+                <SelectContent>
+                  <SelectItem value="+91">+91</SelectItem>
+                  <SelectItem value="+1">+1</SelectItem>
+                  <SelectItem value="+44">+44</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -148,36 +181,37 @@ export default function EnhancedForm({ isPopup = false, onClose }: EnhancedFormP
               type="tel"
               placeholder="Enter Phone"
               value={formData.phone}
-              onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-              className="flex-1 h-12 bg-gray-800 border-gray-600 text-white placeholder-gray-400 ml-2 rounded-lg"
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, phone: e.target.value }))
+              }
+              className="flex-1 h-12 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg"
               required
             />
           </div>
 
-          {/* Submit Button */}
-          <Button 
-            type="submit" 
-            className="w-full h-12 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+          {/* Submit */}
+          <Button
+            type="submit"
+            className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-200"
             disabled={submitLead.isPending}
           >
             {submitLead.isPending ? "BOOKING..." : "BOOK FREE LIVE CLASS"}
           </Button>
 
-          {/* Limited Seats Message */}
-          <div className="flex items-center justify-center space-x-2 bg-yellow-600 text-white p-2 rounded">
-            <span className="text-sm">👥 Limited Seats Left</span>
+          {/* Info */}
+          <div className="flex items-center justify-center bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 p-2 rounded text-sm">
+            👥 Limited Seats Left
           </div>
 
-          {/* Already have account */}
-          <p className="text-sm text-gray-400 text-center">
-            Already have an account? <span className="text-blue-400 underline cursor-pointer">Click here</span>
-          </p>
-
-          {/* Privacy Notice */}
-          <p className="text-xs text-gray-500 text-center leading-relaxed">
-            By creating an account I have read and agree to 
-            <span className="text-blue-400 underline cursor-pointer"> Terms</span> and 
-            <span className="text-blue-400 underline cursor-pointer"> Privacy Policy</span>
+          <p className="text-xs text-center text-gray-500 dark:text-gray-400">
+            By creating an account I have read and agree to{" "}
+            <a href="#" className="text-blue-500 underline">
+              Terms
+            </a>{" "}
+            and{" "}
+            <a href="#" className="text-blue-500 underline">
+              Privacy Policy
+            </a>
           </p>
         </form>
       </CardContent>

@@ -63,54 +63,20 @@
 }
 
 @layer utilities {
-  .bg-primary {
-    background-color: var(--primary);
-  }
-  
-  .bg-secondary {
-    background-color: var(--secondary);
-  }
-  
-  .bg-accent {
-    background-color: var(--accent);
-  }
-  
-  .bg-success {
-    background-color: var(--success);
-  }
-  
-  .bg-light {
-    background-color: var(--light);
-  }
-  
-  .bg-dark {
-    background-color: var(--dark);
-  }
-  
-  .text-primary {
-    color: var(--primary);
-  }
-  
-  .text-secondary {
-    color: var(--secondary);
-  }
-  
-  .text-accent {
-    color: var(--accent);
-  }
-  
-  .text-success {
-    color: var(--success);
-  }
-  
-  .text-light {
-    color: var(--light);
-  }
-  
-  .text-dark {
-    color: var(--dark);
-  }
-  
+  .bg-primary { background-color: var(--primary); }
+  .bg-secondary { background-color: var(--secondary); }
+  .bg-accent { background-color: var(--accent); }
+  .bg-success { background-color: var(--success); }
+  .bg-light { background-color: var(--light); }
+  .bg-dark { background-color: var(--dark); }
+
+  .text-primary { color: var(--primary); }
+  .text-secondary { color: var(--secondary); }
+  .text-accent { color: var(--accent); }
+  .text-success { color: var(--success); }
+  .text-light { color: var(--light); }
+  .text-dark { color: var(--dark); }
+
   .gradient-primary {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
   }
@@ -118,47 +84,45 @@
   .marquee {
     overflow: hidden;
     white-space: nowrap;
+    position: relative;
+    width: 100%;
   }
 
   .marquee-content {
-    display: inline-block;
-    animation: marquee 30s linear infinite;
+    display: inline-flex;
+    gap: 4rem;
+    animation: marquee 25s linear infinite;
   }
 
-  .marquee-content:hover {
-    animation-play-state: paused;
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
   }
 
   .marquee-reverse {
     overflow: hidden;
     white-space: nowrap;
+    position: relative;
+    width: 100%;
   }
 
   .marquee-content-reverse {
-    display: inline-block;
-    animation: marquee-reverse 30s linear infinite;
-  }
-
-  .marquee-content-reverse:hover {
-    animation-play-state: paused;
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+    display: inline-flex;
+    gap: 4rem;
+    animation: marquee-reverse 25s linear infinite;
   }
 
   @keyframes marquee-reverse {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .logo-img {
+    height: 64px;
+    max-height: 64px;
+    object-fit: contain;
+    filter: none !important;
+    opacity: 1 !important;
   }
 
   .whatsapp-float {
