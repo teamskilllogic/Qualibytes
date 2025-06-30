@@ -71,7 +71,7 @@ The application uses Drizzle ORM with PostgreSQL and includes these main entitie
 
 ## Deployment Strategy
 
-The application is configured for deployment on Replit with the following setup:
+The application is configured for deployment follow setup:
 
 ### Development Environment
 - **Node.js 20** runtime environment
@@ -85,7 +85,7 @@ The application is configured for deployment on Replit with the following setup:
 - **Static file serving** from Express.js server
 - **PostgreSQL** connection via DATABASE_URL environment variable
 
-### Replit Configuration
+### Configuration
 - **Autoscale deployment** target for production
 - **Port 5000** exposed as port 80 externally
 - **Parallel workflow** execution for development
