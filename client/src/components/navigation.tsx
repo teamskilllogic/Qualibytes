@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Menu, ChevronDown, Sun, Moon } from "lucide-react";
 import { useTheme } from "../hooks/use-theme";
+import { programs } from "@/pages/programs";
 
 interface NavigationProps {
   onRequestCall: () => void;
@@ -40,26 +41,51 @@ export default function Navigation({ onRequestCall }: NavigationProps) {
 
           {/* Center: Desktop Menu */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary text-sm font-medium">HOME</a>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="text-foreground hover:text-primary text-sm font-medium flex items-center">
-                  PROGRAMS <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>Software Development</DropdownMenuItem>
-                <DropdownMenuItem>Data Science</DropdownMenuItem>
-                <DropdownMenuItem>AI & Machine Learning</DropdownMenuItem>
-                <DropdownMenuItem>DevOps & Cloud</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <a href="/" className="text-foreground hover:text-primary text-sm font-medium">HOME</a>
+            <div className="flex gap-0">
+              <a href="/programs" className="text-white hover:text-primary text-sm font-medium rounded-l-full px-4 py-2 border border-border border-r-0 bg-black font-semibold focus:z-10 transition-all duration-200">PROGRAMS</a>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="text-white hover:text-primary text-sm font-medium rounded-r-full px-3 py-2 border border-border border-l-0 bg-black font-semibold flex items-center gap-1 focus:z-10 transition-all duration-200">
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  {programs.map((program) => {
+                    let courseFile = "";
+                    switch (program.name) {
+                      case "DevOps": courseFile = "DevOps"; break;
+                      case "AI/ML": courseFile = "AIML"; break;
+                      case "Manual Testing": courseFile = "ManualTesting"; break;
+                      case "Automation Testing": courseFile = "AutomationTesting"; break;
+                      case "Java Full Stack": courseFile = "JavaFullStack"; break;
+                      case "PHP Full Stack": courseFile = "PHPFullStack"; break;
+                      case "Frontend Development": courseFile = "Frontend"; break;
+                      case "Backend Development": courseFile = "Backend"; break;
+                      case "MERN Stack": courseFile = "MERN"; break;
+                      case "Business Analyst": courseFile = "BusinessAnalyst"; break;
+                      case "Medical Billing": courseFile = "MedicalBilling"; break;
+                      case "US IT Staffing": courseFile = "USIT"; break;
+                      case "US Healthcare": courseFile = "USHealthcare"; break;
+                      default: courseFile = program.path; break;
+                    }
+                    return (
+                      <DropdownMenuItem key={program.path} asChild>
+                        <a href={`/courses/${courseFile}`}>{program.name}</a>
+                      </DropdownMenuItem>
+                    );
+                  })}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
             <a href="#about" className="text-foreground hover:text-primary text-sm font-medium">ABOUT US</a>
             <a href="#contact" className="text-foreground hover:text-primary text-sm font-medium">CONTACT</a>
             <a href="#testimonials" className="text-foreground hover:text-primary text-sm font-medium">TESTIMONIALS</a>
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-all duration-200">
-              ONLINE DEGREE
-            </Button>
+            <a href="/online-degree-programs">
+              <Button className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-all duration-200">
+                ONLINE DEGREE
+              </Button>
+            </a>
           </div>
 
           {/* Right: Desktop Buttons */}
@@ -106,11 +132,47 @@ export default function Navigation({ onRequestCall }: NavigationProps) {
               </SheetTrigger>
               <SheetContent side="left" className="w-[80%] max-w-sm">
                 <div className="flex flex-col space-y-4 mt-8">
-                  <a href="#home" className="text-foreground hover:text-primary text-lg font-medium">HOME</a>
+                  <a href="/" className="text-foreground hover:text-primary text-lg font-medium">HOME</a>
                   <a href="#about" className="text-foreground hover:text-primary text-lg font-medium">ABOUT US</a>
                   <a href="#contact" className="text-foreground hover:text-primary text-lg font-medium">CONTACT</a>
                   <a href="#testimonials" className="text-foreground hover:text-primary text-lg font-medium">TESTIMONIALS</a>
-                  <a href="#" className="text-foreground hover:text-primary text-lg font-medium">PROGRAMS</a>
+                  <div className="flex gap-0">
+                    <a href="/programs" className="text-white hover:text-primary text-lg font-medium rounded-l-full px-4 py-2 border border-border border-r-0 bg-black font-semibold focus:z-10 transition-all duration-200">PROGRAMS</a>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <button className="text-white hover:text-primary text-lg font-medium rounded-r-full px-3 py-2 border border-border border-l-0 bg-black font-semibold flex items-center gap-1 focus:z-10 transition-all duration-200">
+                          <ChevronDown className="h-4 w-4" />
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="start">
+                        {programs.map((program) => {
+                          let courseFile = "";
+                          switch (program.name) {
+                            case "DevOps": courseFile = "DevOps"; break;
+                            case "AI/ML": courseFile = "AIML"; break;
+                            case "Manual Testing": courseFile = "ManualTesting"; break;
+                            case "Automation Testing": courseFile = "AutomationTesting"; break;
+                            case "Java Full Stack": courseFile = "JavaFullStack"; break;
+                            case "PHP Full Stack": courseFile = "PHPFullStack"; break;
+                            case "Frontend Development": courseFile = "Frontend"; break;
+                            case "Backend Development": courseFile = "Backend"; break;
+                            case "MERN Stack": courseFile = "MERN"; break;
+                            case "Business Analyst": courseFile = "BusinessAnalyst"; break;
+                            case "Medical Billing": courseFile = "MedicalBilling"; break;
+                            case "US IT Staffing": courseFile = "USIT"; break;
+                            case "US Healthcare": courseFile = "USHealthcare"; break;
+                            default: courseFile = program.path; break;
+                          }
+                          return (
+                            <DropdownMenuItem key={program.path} asChild>
+                              <a href={`/courses/${courseFile}`}>{program.name}</a>
+                            </DropdownMenuItem>
+                          );
+                        })}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                  <a href="/online-degree-programs" className="text-foreground hover:text-primary text-lg font-medium">ONLINE DEGREE</a>
                   <a href="#" className="text-foreground hover:text-primary text-lg font-medium">MASTERCLASS</a>
                   <a href="#" className="text-foreground hover:text-primary text-lg font-medium">ALUMNI</a>
                   <a href="#" className="text-foreground hover:text-primary text-lg font-medium">RESOURCES</a>

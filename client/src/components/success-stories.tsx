@@ -57,7 +57,7 @@ export default function SuccessStories() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedStories.map((story) => (
-            <Card key={story.id} className="bg-black dark:bg-black light:bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <Card key={story.id} className="shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <img 
@@ -66,15 +66,15 @@ export default function SuccessStories() {
                     className="w-16 h-16 rounded-full mr-4 object-cover" 
                   />
                   <div>
-                    <h4 className="font-semibold text-white dark:text-white light:text-gray-900">{story.name}</h4>
-                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600">{story.currentPosition} @ {story.currentCompany}</p>
+                    <h4 className="font-semibold text-card-foreground">{story.name}</h4>
+                    <p className="text-sm text-muted-foreground">{story.currentPosition} @ {story.currentCompany}</p>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   <div>
-                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600 mb-1">Pre Qualibytes</p>
-                    <p className="font-medium text-white dark:text-white light:text-gray-900">{story.previousCompany}</p>
+                    <p className="text-sm text-muted-foreground mb-1">Pre Qualibytes</p>
+                    <p className="font-medium text-card-foreground">{story.previousCompany}</p>
                   </div>
                   
                   <div className="text-center">
@@ -84,8 +84,8 @@ export default function SuccessStories() {
                   </div>
                   
                   <div>
-                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600 mb-1">Post Qualibytes</p>
-                    <p className="font-medium text-white dark:text-white light:text-gray-900">{story.currentCompany}</p>
+                    <p className="text-sm text-muted-foreground mb-1">Post Qualibytes</p>
+                    <p className="font-medium text-card-foreground">{story.currentCompany}</p>
                   </div>
                   
                   {story.profileUrl && (

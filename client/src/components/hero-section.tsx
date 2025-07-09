@@ -1,5 +1,6 @@
 import EnhancedForm from "./enhanced-form";
 import type { StatisticItem } from "@/lib/types";
+import { useTheme } from "@/hooks/use-theme";
 
 const statistics: StatisticItem[] = [
   { value: "1400+", label: "Hiring Partners" },
@@ -8,6 +9,8 @@ const statistics: StatisticItem[] = [
 ];
 
 export default function HeroSection() {
+  const { theme } = useTheme();
+
   return (
     <section
       className="py-20 transition-all duration-300 
@@ -21,9 +24,9 @@ export default function HeroSection() {
           <div className="w-full lg:w-3/5 flex flex-col justify-between">
             
             {/* 🖼️ Image */}
-            <div className="flex-1">
+            <div className={`flex-1 ${theme === "dark" ? "bg-[#18181b]" : ""}`}>
               <img
-                src="https://i.postimg.cc/28z0TGsG/Chat-GPT-Image-Jun-26-2025-07-35-01-PM.png"
+                src={theme === "light" ? "/hero-light.png" : "https://i.postimg.cc/28z0TGsG/Chat-GPT-Image-Jun-26-2025-07-35-01-PM.png"}
                 alt="Webinar Promo"
                 className="rounded-xl w-full h-full object-cover border border-black/10 dark:border-white/20"
               />
