@@ -13,8 +13,12 @@ export default function Testimonials() {
       <section className="py-16 bg-background dark:bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">OUR LEARNERS' WORKS SPEAKS FOR THEM</h2>
-            <h3 className="text-xl text-muted-foreground">Hear What The Industry Has To Say</h3>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              OUR LEARNERS' WORKS SPEAKS FOR THEM
+            </h2>
+            <h3 className="text-xl text-muted-foreground">
+              Hear What The Industry Has To Say
+            </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(3)].map((_, index) => (
@@ -41,26 +45,40 @@ export default function Testimonials() {
     <section className="py-16 bg-background dark:bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4">OUR LEARNERS' WORKS SPEAKS FOR THEM</h2>
-          <h3 className="text-xl text-muted-foreground">Hear What The Industry Has To Say</h3>
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            OUR LEARNERS' WORKS SPEAKS FOR THEM
+          </h2>
+          <h3 className="text-xl text-muted-foreground">
+            Hear What The Industry Has To Say
+          </h3>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials?.map((testimonial) => (
-            <Card key={testimonial.id} className="bg-black dark:bg-black light:bg-white">
+            <Card
+              key={testimonial.id}
+              className="bg-black dark:bg-black light:bg-white"
+            >
               <CardContent className="p-6">
                 <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 mb-4 italic">
                   "{testimonial.content}"
                 </p>
                 <div className="flex items-center">
-                  <img 
-                    src={testimonial.imageUrl || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"} 
+                  <img
+                    src={
+                      testimonial.imageUrl ||
+                      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"
+                    }
                     alt={`${testimonial.name}, corporate executive`}
-                    className="w-12 h-12 rounded-full mr-4 object-cover" 
+                    className="w-12 h-12 rounded-full mr-4 object-cover"
                   />
                   <div>
-                    <p className="font-semibold text-white dark:text-white light:text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600">{testimonial.position}, {testimonial.company}</p>
+                    <p className="font-semibold text-white dark:text-white light:text-gray-900">
+                      {testimonial.name}
+                    </p>
+                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600">
+                      {testimonial.position}, {testimonial.company}
+                    </p>
                   </div>
                 </div>
               </CardContent>

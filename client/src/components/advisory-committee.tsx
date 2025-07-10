@@ -13,8 +13,12 @@ export default function AdvisoryCommittee() {
       <section className="py-16 bg-muted dark:bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">ADVISORY COMMITTEE</h2>
-            <h3 className="text-xl text-muted-foreground">We're Guided by Top Leaders</h3>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              ADVISORY COMMITTEE
+            </h2>
+            <h3 className="text-xl text-muted-foreground">
+              We're Guided by Top Leaders
+            </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[...Array(3)].map((_, index) => (
@@ -38,21 +42,35 @@ export default function AdvisoryCommittee() {
     <section className="py-16 bg-muted dark:bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4">ADVISORY COMMITTEE</h2>
-          <h3 className="text-xl text-muted-foreground">We're Guided by Top Leaders</h3>
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            ADVISORY COMMITTEE
+          </h2>
+          <h3 className="text-xl text-muted-foreground">
+            We're Guided by Top Leaders
+          </h3>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {advisors?.map((advisor) => (
-            <Card key={advisor.id} className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <Card
+              key={advisor.id}
+              className="bg-white dark:bg-black shadow-lg hover:shadow-xl transition-shadow"
+            >
               <CardContent className="p-6 text-center">
-                <img 
-                  src={advisor.imageUrl || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200"} 
+                <img
+                  src={
+                    advisor.imageUrl ||
+                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200"
+                  }
                   alt={`${advisor.name}, corporate advisory professional`}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" 
+                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
                 />
-                <h4 className="text-xl font-semibold text-gray-900 mb-1">{advisor.name}</h4>
-                <p className="text-primary font-medium mb-3">{advisor.position}</p>
+                <h4 className="text-xl font-semibold text-gray-900 mb-1">
+                  {advisor.name}
+                </h4>
+                <p className="text-primary font-medium mb-3">
+                  {advisor.position}
+                </p>
                 <p className="text-sm text-gray-600 mb-4">{advisor.bio}</p>
                 <div className="bg-gray-100 w-16 h-8 rounded mx-auto flex items-center justify-center">
                   <span className="text-xs font-semibold text-gray-600">
