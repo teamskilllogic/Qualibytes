@@ -9,16 +9,20 @@ import SuccessStories from "@/components/success-stories";
 import GrowthFormula from "@/components/growth-formula";
 import LeadershipTeam from "@/components/leadership-team";
 import AdvisoryCommittee from "@/components/advisory-committee";
-import Footer from "@/components/footer";
+import OldFooter from "@/components/oldFooter";
 import WhatsAppFloat from "@/components/whatsapp-float";
 import PopupForm from "@/components/popup-form";
 import IndustriesPieSection from "@/components/industries-pie-section"; // ✅ Fixed path & import
+import AdvisorPopup from "@/components/AdvisorPopup";
+import { useState } from "react";
+import { Link } from "wouter";
 
 interface HomeProps {
   onRequestCall: () => void;
 }
 
 export default function Home({ onRequestCall }: HomeProps) {
+  const [showAdvisorPopup, setShowAdvisorPopup] = useState(false);
   return (
     <div className="min-h-screen bg-background dark:bg-background">
       <Navigation onRequestCall={onRequestCall} />
@@ -32,8 +36,11 @@ export default function Home({ onRequestCall }: HomeProps) {
       <GrowthFormula />
       <LeadershipTeam />
       <AdvisoryCommittee />
-      <Footer />
+      <OldFooter />
       <WhatsAppFloat />
+      {showAdvisorPopup && (
+        <AdvisorPopup onClose={() => setShowAdvisorPopup(false)} />
+      )}
       {/* If PopupForm is handled globally, don't include here */}
       {/* <PopupForm /> */}
     </div>

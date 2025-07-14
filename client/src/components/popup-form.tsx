@@ -2,12 +2,19 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import PhoneVerification from "@/components/PhoneVerification";
 
 export default function PopupForm() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +22,7 @@ export default function PopupForm() {
     program: "",
     name: "",
     email: "",
-    phone: ""
+    phone: "",
   });
   const { toast } = useToast();
 
@@ -90,7 +97,7 @@ export default function PopupForm() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400 rounded-full transform translate-x-32 -translate-y-32"></div>
               <div className="absolute bottom-0 right-0 w-48 h-48 bg-yellow-500 rounded-full transform translate-x-24 translate-y-24"></div>
             </div>
-            
+
             <div className="relative z-10">
               <h2 className="text-3xl font-bold mb-6">Talk to our Advisor</h2>
               <div className="mb-6">
@@ -106,11 +113,13 @@ export default function PopupForm() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                    <span className="text-lg">Free Access to Qualibytes Events</span>
+                    <span className="text-lg">
+                      Free Access to Qualibytes Events
+                    </span>
                   </div>
                 </div>
               </div>
-              
+
               {/* Advisor Image Placeholder */}
               <div className="absolute bottom-0 right-8 w-48 h-48 bg-white/10 rounded-full flex items-center justify-center">
                 <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center">
@@ -118,7 +127,7 @@ export default function PopupForm() {
                 </div>
               </div>
             </div>
-            
+
             {/* Qualibytes Logo */}
             <div className="absolute bottom-4 right-4 text-sm font-semibold bg-white/20 px-3 py-1 rounded">
               QUALIBYTES
@@ -130,22 +139,47 @@ export default function PopupForm() {
             <DialogTitle className="text-2xl font-bold text-white mb-6">
               Talk to our Advisor!
             </DialogTitle>
-            
+
             <form className="space-y-4" onSubmit={handleSubmit}>
               {/* Program Selection */}
               <div className="space-y-2">
-                <Label htmlFor="program" className="text-white text-sm">Your Topic of Interest*</Label>
-                <Select value={formData.program} onValueChange={(value) => setFormData(prev => ({ ...prev, program: value }))}>
+                <Label htmlFor="program" className="text-white text-sm">
+                  Your Topic of Interest*
+                </Label>
+                <Select
+                  value={formData.program}
+                  onValueChange={(value) =>
+                    setFormData((prev) => ({ ...prev, program: value }))
+                  }
+                >
                   <SelectTrigger className="w-full h-12 bg-gray-800 border-gray-600 text-white">
                     <SelectValue placeholder="Select Program" />
                   </SelectTrigger>
                   <SelectContent className="bg-gray-800 border-gray-600">
-                    <SelectItem value="software-development" className="text-white">Software Development</SelectItem>
-                    <SelectItem value="data-science" className="text-white">Data Science</SelectItem>
-                    <SelectItem value="machine-learning" className="text-white">Machine Learning & AI</SelectItem>
-                    <SelectItem value="web-development" className="text-white">Web Development</SelectItem>
-                    <SelectItem value="mobile-development" className="text-white">Mobile Development</SelectItem>
-                    <SelectItem value="devops" className="text-white">DevOps & Cloud</SelectItem>
+                    <SelectItem
+                      value="software-development"
+                      className="text-white"
+                    >
+                      Software Development
+                    </SelectItem>
+                    <SelectItem value="data-science" className="text-white">
+                      Data Science
+                    </SelectItem>
+                    <SelectItem value="machine-learning" className="text-white">
+                      Machine Learning & AI
+                    </SelectItem>
+                    <SelectItem value="web-development" className="text-white">
+                      Web Development
+                    </SelectItem>
+                    <SelectItem
+                      value="mobile-development"
+                      className="text-white"
+                    >
+                      Mobile Development
+                    </SelectItem>
+                    <SelectItem value="devops" className="text-white">
+                      DevOps & Cloud
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -156,7 +190,9 @@ export default function PopupForm() {
                   type="text"
                   placeholder="Enter Name"
                   value={formData.name}
-                  onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, name: e.target.value }))
+                  }
                   className="h-12 bg-gray-800 border-gray-600 text-white placeholder-gray-400"
                   required
                 />
@@ -168,39 +204,24 @@ export default function PopupForm() {
                   type="email"
                   placeholder="Enter Email"
                   value={formData.email}
-                  onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, email: e.target.value }))
+                  }
                   className="h-12 bg-gray-800 border-gray-600 text-white placeholder-gray-400"
                   required
                 />
               </div>
 
               {/* Phone */}
-              <div className="space-y-2 flex">
-                <div className="w-20">
-                  <Select defaultValue="+91">
-                    <SelectTrigger className="h-12 bg-gray-800 border-gray-600 text-white">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent className="bg-gray-800 border-gray-600">
-                      <SelectItem value="+91" className="text-white">+91</SelectItem>
-                      <SelectItem value="+1" className="text-white">+1</SelectItem>
-                      <SelectItem value="+44" className="text-white">+44</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <Input
-                  type="tel"
-                  placeholder="Enter Phone"
-                  value={formData.phone}
-                  onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                  className="flex-1 h-12 bg-gray-800 border-gray-600 text-white placeholder-gray-400 ml-2"
-                  required
-                />
-              </div>
+              <PhoneVerification
+                onVerificationComplete={(phone) =>
+                  setFormData((prev) => ({ ...prev, phone }))
+                }
+              />
 
               {/* Submit Button */}
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full h-12 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200 mt-6"
                 disabled={submitLead.isPending}
               >
