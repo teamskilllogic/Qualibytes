@@ -9,7 +9,7 @@ export default function LeadershipTeam() {
 
   if (isLoading) {
     return (
-      <section className="py-16 bg-black dark:bg-black">
+      <section className="py-16 bg-background dark:bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
@@ -38,7 +38,7 @@ export default function LeadershipTeam() {
   }
 
   return (
-    <section className="py-16 bg-black dark:bg-black">
+    <section className="py-16 bg-background dark:bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-foreground mb-4">OUR TEAM</h2>
@@ -51,7 +51,7 @@ export default function LeadershipTeam() {
           {teamMembers?.map((member) => (
             <div
               key={member.id}
-              className="text-center bg-black dark:bg-black rounded-xl p-6"
+              className="text-center bg-card text-card-foreground rounded-xl p-6 shadow-lg"
             >
               <img
                 src={
@@ -61,11 +61,11 @@ export default function LeadershipTeam() {
                 alt={`${member.name}, corporate leadership professional`}
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
-              <h4 className="text-xl font-semibold text-gray-900 mb-1">
+              <h4 className="text-xl font-semibold mb-1">
                 {member.name}
               </h4>
               <p className="text-primary font-medium mb-3">{member.position}</p>
-              <p className="text-sm text-gray-600">{member.bio}</p>
+              <p className="text-sm text-muted-foreground">{member.bio}</p>
             </div>
           ))}
         </div>

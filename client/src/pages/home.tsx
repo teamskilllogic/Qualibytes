@@ -8,7 +8,6 @@ import Testimonials from "@/components/testimonials";
 import SuccessStories from "@/components/success-stories";
 import GrowthFormula from "@/components/growth-formula";
 import LeadershipTeam from "@/components/leadership-team";
-import AdvisoryCommittee from "@/components/advisory-committee";
 import OldFooter from "@/components/oldFooter";
 import WhatsAppFloat from "@/components/whatsapp-float";
 import PopupForm from "@/components/popup-form";
@@ -35,7 +34,6 @@ export default function Home({ onRequestCall }: HomeProps) {
       <SuccessStories />
       <GrowthFormula />
       <LeadershipTeam />
-      <AdvisoryCommittee />
       <OldFooter />
       <WhatsAppFloat />
       {showAdvisorPopup && (
