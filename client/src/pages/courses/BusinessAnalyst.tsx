@@ -28,7 +28,7 @@ const BusinessAnalyst = () => {
           {/* About the Course */}
           <section>
             <h2 className="text-2xl font-semibold mb-3">About the Course</h2>
-            <p className="text-gray-300">
+            <p className="text-foreground text-xl text-center mt-8 mb-12">
               This Business Analyst course is ideal for beginners aiming to
               enter the BA field with 5–7 hours/week of study. Learn the
               fundamentals of business analysis, requirement gathering,
@@ -89,10 +89,10 @@ const BusinessAnalyst = () => {
             ].map((week, index) => (
               <div
                 key={index}
-                className="bg-gray-800 hover:bg-gray-700 transition-all duration-300 p-6 rounded-xl shadow-md"
+                className="bg-card text-card-foreground transition-all duration-300 p-6 rounded-xl shadow-md"
               >
                 <h3 className="text-xl font-bold mb-2">{week.title}</h3>
-                <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+                <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1">
                   {week.points.map((pt, i) => (
                     <li key={i}>{pt}</li>
                   ))}

@@ -28,7 +28,7 @@ const JavaFullStack = () => {
           {/* About the Course */}
           <section>
             <h2 className="text-2xl font-semibold mb-3">About the Course</h2>
-            <p className="text-gray-300">
+            <p className="text-foreground text-xl text-center mt-8 mb-12">
               This Java Full Stack Development course equips you with the
               complete skill set to build dynamic web applications. Learn
               everything from front-end technologies to back-end development
@@ -112,10 +112,10 @@ const JavaFullStack = () => {
             ].map((week, index) => (
               <div
                 key={index}
-                className="bg-gray-800 hover:bg-gray-700 transition-all duration-300 p-6 rounded-xl shadow-md"
+                className="bg-card text-card-foreground transition-all duration-300 p-6 rounded-xl shadow-md"
               >
                 <h3 className="text-xl font-bold mb-2">{week.title}</h3>
-                <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+                <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1">
                   {week.points.map((pt, i) => (
                     <li key={i}>{pt}</li>
                   ))}

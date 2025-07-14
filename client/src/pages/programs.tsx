@@ -187,7 +187,7 @@ const Programs = () => {
                         ))}
                       </div>
                       <Button
-                        className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-medium transition mr-1 mb-2"
+                        className="inline-block bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-md font-medium transition mr-1 mb-2"
                         onClick={() => setShowForm(true)}
                       >
                         Apply Now

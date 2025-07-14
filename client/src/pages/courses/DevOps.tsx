@@ -139,10 +139,10 @@ const DevOps = () => {
             ].map((week, index) => (
               <div
                 key={index}
-                className="bg-gray-800 hover:bg-gray-700 transition-all duration-300 p-6 rounded-xl shadow-md"
+                className="bg-card text-card-foreground transition-all duration-300 p-6 rounded-xl shadow-md"
               >
                 <h3 className="text-xl font-bold mb-2">{week.title}</h3>
-                <ul className="list-disc list-inside text-gray-800 dark:text-gray-300 text-sm space-y-1">
+                <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1">
                   {week.points.map((pt, i) => (
                     <li key={i}>{pt}</li>
                   ))}

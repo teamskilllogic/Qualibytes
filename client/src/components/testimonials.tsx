@@ -57,10 +57,10 @@ export default function Testimonials() {
           {testimonials?.map((testimonial) => (
             <Card
               key={testimonial.id}
-              className="bg-black dark:bg-black light:bg-white"
+              className="bg-card text-card-foreground shadow-lg"
             >
               <CardContent className="p-6">
-                <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 mb-4 italic">
+                <p className="mb-4 italic">
                   "{testimonial.content}"
                 </p>
                 <div className="flex items-center">
@@ -73,10 +73,10 @@ export default function Testimonials() {
                     className="w-12 h-12 rounded-full mr-4 object-cover"
                   />
                   <div>
-                    <p className="font-semibold text-white dark:text-white light:text-gray-900">
+                    <p className="font-semibold">
                       {testimonial.name}
                     </p>
-                    <p className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600">
+                    <p className="text-sm text-muted-foreground">
                       {testimonial.position}, {testimonial.company}
                     </p>
                   </div>
