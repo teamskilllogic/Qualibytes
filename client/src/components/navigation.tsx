@@ -184,13 +184,13 @@ export default function Navigation({ onRequestCall }: NavigationProps) {
                     HOME
                   </a>
                   <a
-                    href="#about"
+                    href="/about"
                     className="text-foreground hover:text-primary text-lg font-medium"
                   >
                     ABOUT US
                   </a>
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="text-foreground hover:text-primary text-lg font-medium"
                   >
                     CONTACT

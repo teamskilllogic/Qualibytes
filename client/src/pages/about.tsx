@@ -23,6 +23,7 @@ import {
   Star,
   ArrowRight,
 } from "lucide-react";
+import OldFooter from "@/components/oldFooter";
 
 interface AboutProps {
   onRequestCall?: () => void;
@@ -345,6 +346,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <OldFooter />
     </div>
   );
 }

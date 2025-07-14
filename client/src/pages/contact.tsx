@@ -32,6 +32,7 @@ import {
   Facebook,
   Youtube,
 } from "lucide-react";
+import OldFooter from "@/components/oldFooter";
 
 export default function Contact() {
   const [showAdvisorPopup, setShowAdvisorPopup] = useState(false);
@@ -395,8 +396,8 @@ export default function Contact() {
       </section>
 
       {/* Social Links Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* <section className="py-16 px-4 sm:px-6 lg:px-8"> */}
+        {/* <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl font-bold text-foreground mb-8">
             Follow us on Social Media
           </h3>
@@ -415,9 +416,9 @@ export default function Contact() {
                 </a>
               );
             })}
-          </div>
+          </div> */}
           {/* Navigation Links from Footer */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 justify-center text-left">
+          {/* <dive className="grid grid-cols-1 sm:grid-cols-3 gap-8 justify-center text-left">
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">
                 Programs
@@ -465,9 +466,9 @@ export default function Contact() {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
+          </dive> */}
+        {/* </div> */}
+      {/* // </section> */}
 
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-800 to-blue-500">
@@ -497,6 +498,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      <OldFooter />
     </div>
   );
 }
