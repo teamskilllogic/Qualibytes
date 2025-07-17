@@ -232,66 +232,83 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {offices.map((office, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-xl mb-2">{office.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-muted-foreground mt-0.5" />
-                    <div>
-                      <p className="font-medium">{office.address}</p>
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Address Card on the left */}
+            <div className="w-full lg:w-1/2">
+              {offices.map((office, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="text-xl mb-2">
+                      {office.name}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="h-5 w-5 text-muted-foreground mt-0.5" />
+                      <div>
+                        <p className="font-medium">{office.address}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <PhoneIcon className="h-5 w-5 text-muted-foreground" />
-                    <a
-                      href={`tel:${office.phone}`}
-                      className="text-primary hover:underline"
-                    >
-                      {office.phone}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <MailIcon className="h-5 w-5 text-muted-foreground" />
-                    <a
-                      href={`mailto:${office.email}`}
-                      className="text-primary hover:underline"
-                    >
-                      {office.email}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Clock className="h-5 w-5 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">
-                      {office.hours}
-                    </span>
-                  </div>
-                  {office.website && (
                     <div className="flex items-center gap-3">
-                      <Globe className="h-5 w-5 text-muted-foreground" />
+                      <PhoneIcon className="h-5 w-5 text-muted-foreground" />
                       <a
-                        href={office.website}
+                        href={`tel:${office.phone}`}
                         className="text-primary hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
                       >
-                        {office.website}
+                        {office.phone}
                       </a>
                     </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
+                    <div className="flex items-center gap-3">
+                      <MailIcon className="h-5 w-5 text-muted-foreground" />
+                      <a
+                        href={`mailto:${office.email}`}
+                        className="text-primary hover:underline"
+                      >
+                        {office.email}
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock className="h-5 w-5 text-muted-foreground" />
+                      <span className="text-sm text-muted-foreground">
+                        {office.hours}
+                      </span>
+                    </div>
+                    {office.website && (
+                      <div className="flex items-center gap-3">
+                        <Globe className="h-5 w-5 text-muted-foreground" />
+                        <a
+                          href={office.website}
+                          className="text-primary hover:underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {office.website}
+                        </a>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            {/* Map on the right */}
+            <div className="w-full lg:w-1/2 rounded-xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.4905038484458!2d77.31401203205202!3d28.585058388124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5d3172b6069%3A0x55426a34bb907331!2sQualibytes%20IT%20Academy!5e0!3m2!1sen!2sin!4v1749755721954!5m2!1sen!2sin"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Form Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Any other Queries?
@@ -300,8 +317,7 @@ export default function Contact() {
               Send us a message and we'll get back to you as soon as possible
             </p>
           </div>
-
-          <Card className="max-w-2xl mx-auto">
+          <Card>
             <CardHeader>
               <CardTitle className="text-2xl text-center">
                 Get in Touch
@@ -394,81 +410,6 @@ export default function Contact() {
           </Card>
         </div>
       </section>
-
-      {/* Social Links Section */}
-      {/* <section className="py-16 px-4 sm:px-6 lg:px-8"> */}
-        {/* <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl font-bold text-foreground mb-8">
-            Follow us on Social Media
-          </h3>
-          <div className="flex justify-center gap-6 mb-12">
-            {socialLinks.map((social, index) => {
-              const IconComponent = social.icon;
-              return (
-                <a
-                  key={index}
-                  href={social.url}
-                  className={`flex items-center gap-2 text-gray-300 transition-colors font-medium px-4 py-2 ${social.hover}`}
-                  aria-label={social.name}
-                >
-                  <IconComponent className={`h-6 w-6 ${social.hover}`} />
-                  <span className={social.hover}>{social.name}</span>
-                </a>
-              );
-            })}
-          </div> */}
-          {/* Navigation Links from Footer */}
-          {/* <dive className="grid grid-cols-1 sm:grid-cols-3 gap-8 justify-center text-left">
-            <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">
-                Programs
-              </h4>
-              <ul className="space-y-2">
-                {programLinks.map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">Company</h4>
-              <ul className="space-y-2">
-                {companyLinks.map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">Support</h4>
-              <ul className="space-y-2">
-                {supportLinks.map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </dive> */}
-        {/* </div> */}
-      {/* // </section> */}
 
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-800 to-blue-500">
